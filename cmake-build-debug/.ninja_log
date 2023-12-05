@@ -1,0 +1,17 @@
+# ninja log v5
+903	1231	1701816364011952666	ProiectIP_EvaluatorMatematic	b93f3c6f74937c02
+7	757	1701816363537893042	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/verificareParanteze.cpp.o	24257e98372fffef
+7	756	1701816363537914249	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/preprocesare.cpp.o	685e75c27ad40e03
+5	903	1701816363686722259	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/main.cpp.o	cf4517ee895f25ab
+7	2322	1701816719535813899	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/parsareExpresie.cpp.o	4d9c7e04612162e
+5	2721	1701816719931441320	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/main.cpp.o	cf4517ee895f25ab
+6	2358	1701816820775470633	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/parsareExpresie.cpp.o	4d9c7e04612162e
+6	2682	1701816821099007979	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/verificareParanteze.cpp.o	24257e98372fffef
+5	2845	1701816821257303454	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/main.cpp.o	cf4517ee895f25ab
+2845	4217	1701816822633470779	ProiectIP_EvaluatorMatematic	b0a063006e9e2c5
+4	574	1701817720137090463	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/preprocesare.cpp.o	685e75c27ad40e03
+4	574	1701817720137088838	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/verificareParanteze.cpp.o	24257e98372fffef
+5	582	1701817720147174953	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/parsareExpresie.cpp.o	4d9c7e04612162e
+4	709	1701817720272684551	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/main.cpp.o	cf4517ee895f25ab
+4	580	1701817822660112984	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/parsareExpresie.cpp.o	4d9c7e04612162e
+580	744	1701817822823238570	ProiectIP_EvaluatorMatematic	b0a063006e9e2c5
