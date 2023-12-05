@@ -1,0 +1,3 @@
+/Users/tescovschimario/CLionProjects/ProiectIP_EvaluatorMatematic/cmake-build-debug/CMakeFiles/ProiectIP_EvaluatorMatematic.dir
+/Users/tescovschimario/CLionProjects/ProiectIP_EvaluatorMatematic/cmake-build-debug/CMakeFiles/edit_cache.dir
+/Users/tescovschimario/CLionProjects/ProiectIP_EvaluatorMatematic/cmake-build-debug/CMakeFiles/rebuild_cache.dir
