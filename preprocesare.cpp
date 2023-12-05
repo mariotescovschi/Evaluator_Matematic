@@ -35,15 +35,7 @@ void prestabilire_alte_functii(){
 }
 
 void prestabilire_semne(){
-    semne[0] = '+';
-    semne[1] = '-';
-    semne[2] = '*';
-    semne[3] = '/';
-    semne[4] = '^';
-    semne[5] = '#';
-    semne[6] = '<';
-    semne[7] = '>';
-    semne[8] = '=';
+    strcpy(semne, "+-*/^#<>=");
 }
 void preprocesare(){
     initiere_tree();
