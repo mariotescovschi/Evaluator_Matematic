@@ -29,6 +29,7 @@ void stergere_paranteze_exterioare(Node *nod){
     if(paranteze_exterioare(nod -> functie)) {
         for (int i = 0; i < nod->functie.size() - 1; i++)
             nod->functie[i] = nod->functie[i + 1];
+
         nod->functie.resize(nod->functie.size() - 2);
     }
 
