@@ -1,6 +1,6 @@
 #include "preprocesare.h"
 #include "structuriDeDate.h"
-#include <iostream>
+#include <string>
 
 void initiere_tree(){
     tree = new Node;

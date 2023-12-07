@@ -1,6 +1,7 @@
 #include <cstring>
 #include <cmath>
 #include <iostream>
+#include <string>
 #include "parsareExpresie.h"
 #include "structuriDeDate.h"
 #include "verificareParanteze.h"

@@ -1,6 +1,6 @@
 #include "verificareParanteze.h"
 #include "structuriDeDate.h"
-#include <iostream>
+#include <string>
 using namespace std;
 
 bool paranteze_exterioare(string functie){
