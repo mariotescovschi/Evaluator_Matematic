@@ -21,18 +21,6 @@ struct Node{
 };
 extern Node *tree;
 
-
+//DC NU MERE
 
 #endif
-/*
- *
- *  ((x+2) - sin(3*7/3)
-                -
-            +       sin
-                     |
-        x  2      (3*(7/3))
-
-
-
-           |
- */
