@@ -1,18 +1,21 @@
 #ifndef UNTITLED8_STRUCTURIDEDATE_H
 #define UNTITLED8_STRUCTURIDEDATE_H
-
+#include <string>
 struct Variabile{
-    char nume[150];
+    std::string nume;
     double valoare;
     bool citit;
 };
 
 extern Variabile var[100];
+
 extern int putere[256];
 extern char alte_functii[10][12];
 extern char semne[10];
+
+
 struct Node{
-    char functie[150];
+    std::string functie;
     double var;
     Node *left, *right, *middle;
 };
@@ -21,3 +24,15 @@ extern Node *tree;
 
 
 #endif
+/*
+ *
+ *  ((x+2) - sin(3*7/3)
+                -
+            +       sin
+                     |
+        x  2      (3*(7/3))
+
+
+
+           |
+ */

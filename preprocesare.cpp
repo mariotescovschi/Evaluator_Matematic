@@ -4,9 +4,9 @@
 
 void initiere_tree(){
     tree = new Node;
-    tree -> left = NULL;
-    tree -> right = NULL;
-    tree -> middle = NULL;
+    tree -> left = nullptr;
+    tree -> right = nullptr;
+    tree -> middle = nullptr;
 }
 
 void prestabilire_putere(){

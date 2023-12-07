@@ -3,10 +3,10 @@
 #include <iostream>
 using namespace std;
 
-bool paranteze_exterioare(char functie[150]){
+bool paranteze_exterioare(string functie){
 
     int nr_paranteze = 0;
-    for(int i = 0; i < strlen(functie) - 1; i++) {
+    for(int i = 0; i < functie.size() - 1; i++) {
         if (functie[i] == '(')
             nr_paranteze++;
 
@@ -20,15 +20,18 @@ bool paranteze_exterioare(char functie[150]){
 }
 
 
-bool are_paranteze_exterioare(char functie[150]){
-    return functie[0] == '(' && functie[strlen(functie) - 1] == ')';
+bool are_paranteze_exterioare(string functie){
+    return functie[0] == '(' && functie[functie.size() - 1] == ')';
 }
 
 void stergere_paranteze_exterioare(Node *nod){
 
-    if(paranteze_exterioare(nod -> functie))
-        nod -> functie[strlen(nod -> functie) - 1] = '\0',
-                strcpy(nod -> functie, nod -> functie + 1);
+    if(paranteze_exterioare(nod -> functie)) {
+        for (int i = 0; i < nod->functie.size() - 1; i++)
+            nod->functie[i] = nod->functie[i + 1];
+        nod->functie.resize(nod->functie.size() - 2);
+    }
+
 }
 
 void verificare_paranteze(Node *nod){
