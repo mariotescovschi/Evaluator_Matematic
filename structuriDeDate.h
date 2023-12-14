@@ -1,26 +1,75 @@
 #ifndef UNTITLED8_STRUCTURIDEDATE_H
 #define UNTITLED8_STRUCTURIDEDATE_H
 #include <string>
+#include <SFML/Graphics.hpp>
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <string>
+#define alb sf::Color::White
+#define negru sf::Color::Black
+#define gri sf::Color(200, 200, 200)
+#define griDeschis sf::Color(230, 230, 230)
+#define griInchis sf::Color(150, 150, 150)
+#define rosu sf::Color::Red
+#define verde sf::Color::Green
+#define albastru sf::Color::Blue
+#define galben sf::Color::Yellow
+#define violet sf::Color(148, 0, 211)
+#define marimeButon sf::Vector2f(100, 100)
+#define windowWidth 1200
+#define windowHeight 900
+
+using namespace sf;
+using namespace std;
+
 struct Variabile{
-    std::string nume;
+    string nume;
     double valoare;
     bool citit;
 };
 
 extern Variabile var[100];
 
+
+extern Font font;
+
 extern int putere[256];
 extern char alte_functii[10][12];
 extern char semne[10];
 
 
+struct Buton{
+    RectangleShape shape;
+    Text text;
+
+    Buton(Vector2f& position, string& buttonText) {
+        shape.setSize(marimeButon);
+        shape.setFillColor(alb);
+        shape.setOutlineColor(negru);
+        shape.setOutlineThickness(3.f);
+        shape.setPosition(position);
+
+        text.setFont(font);
+        text.setString(buttonText);
+        text.setCharacterSize(38);
+        text.setFillColor(negru);
+        text.setStyle(Text::Bold);
+
+        FloatRect textBounds = text.getLocalBounds();
+        text.setOrigin(textBounds.left + textBounds.width / 2.0f, textBounds.top + textBounds.height / 2.0f);
+
+        text.setPosition(shape.getPosition() + marimeButon * 0.5f);
+    }
+};
+
+extern vector<Buton> butoane;
+
 struct Node{
-    std::string functie;
+    string functie;
     double var;
     Node *left, *right, *middle;
 };
 extern Node *tree;
-
-//DC NU MERE
 
 #endif

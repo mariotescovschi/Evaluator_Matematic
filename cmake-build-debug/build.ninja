@@ -77,6 +77,13 @@ build CMakeFiles/ProiectIP_EvaluatorMatematic.dir/parsareExpresie.cpp.o: CXX_COM
   OBJECT_DIR = CMakeFiles/ProiectIP_EvaluatorMatematic.dir
   OBJECT_FILE_DIR = CMakeFiles/ProiectIP_EvaluatorMatematic.dir
 
+build CMakeFiles/ProiectIP_EvaluatorMatematic.dir/meniuCalculator.cpp.o: CXX_COMPILER__ProiectIP_EvaluatorMatematic_unscanned_Debug /Users/tescovschimario/CLionProjects/ProiectIP_EvaluatorMatematic/meniuCalculator.cpp || cmake_object_order_depends_target_ProiectIP_EvaluatorMatematic
+  DEP_FILE = CMakeFiles/ProiectIP_EvaluatorMatematic.dir/meniuCalculator.cpp.o.d
+  FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk -fcolor-diagnostics
+  INCLUDES = -isystem /opt/homebrew/include
+  OBJECT_DIR = CMakeFiles/ProiectIP_EvaluatorMatematic.dir
+  OBJECT_FILE_DIR = CMakeFiles/ProiectIP_EvaluatorMatematic.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target ProiectIP_EvaluatorMatematic
@@ -85,7 +92,7 @@ build CMakeFiles/ProiectIP_EvaluatorMatematic.dir/parsareExpresie.cpp.o: CXX_COM
 #############################################
 # Link the executable ProiectIP_EvaluatorMatematic
 
-build ProiectIP_EvaluatorMatematic: CXX_EXECUTABLE_LINKER__ProiectIP_EvaluatorMatematic_Debug CMakeFiles/ProiectIP_EvaluatorMatematic.dir/main.cpp.o CMakeFiles/ProiectIP_EvaluatorMatematic.dir/verificareParanteze.cpp.o CMakeFiles/ProiectIP_EvaluatorMatematic.dir/preprocesare.cpp.o CMakeFiles/ProiectIP_EvaluatorMatematic.dir/parsareExpresie.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.6.1.dylib /opt/homebrew/lib/libsfml-audio.2.6.1.dylib /opt/homebrew/lib/libsfml-network.2.6.1.dylib /opt/homebrew/lib/libsfml-window.2.6.1.dylib /opt/homebrew/lib/libsfml-system.2.6.1.dylib
+build ProiectIP_EvaluatorMatematic: CXX_EXECUTABLE_LINKER__ProiectIP_EvaluatorMatematic_Debug CMakeFiles/ProiectIP_EvaluatorMatematic.dir/main.cpp.o CMakeFiles/ProiectIP_EvaluatorMatematic.dir/verificareParanteze.cpp.o CMakeFiles/ProiectIP_EvaluatorMatematic.dir/preprocesare.cpp.o CMakeFiles/ProiectIP_EvaluatorMatematic.dir/parsareExpresie.cpp.o CMakeFiles/ProiectIP_EvaluatorMatematic.dir/meniuCalculator.cpp.o | /opt/homebrew/lib/libsfml-graphics.2.6.1.dylib /opt/homebrew/lib/libsfml-audio.2.6.1.dylib /opt/homebrew/lib/libsfml-network.2.6.1.dylib /opt/homebrew/lib/libsfml-window.2.6.1.dylib /opt/homebrew/lib/libsfml-system.2.6.1.dylib
   FLAGS = -g -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.0.sdk
   LINK_LIBRARIES = -Wl,-rpath,/opt/homebrew/lib  /opt/homebrew/lib/libsfml-graphics.2.6.1.dylib  /opt/homebrew/lib/libsfml-audio.2.6.1.dylib  /opt/homebrew/lib/libsfml-network.2.6.1.dylib  /opt/homebrew/lib/libsfml-window.2.6.1.dylib  /opt/homebrew/lib/libsfml-system.2.6.1.dylib
   OBJECT_DIR = CMakeFiles/ProiectIP_EvaluatorMatematic.dir

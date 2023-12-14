@@ -3,10 +3,12 @@
 #include <SFML/Graphics.hpp>
 #include "structuriDeDate.h"
 #include "parsareExpresie.h"
+#include "meniuCalculator.h"
 #include "preprocesare.h"
 using namespace std;
 using namespace sf;
 
+Font font;
 Node *tree;
 int putere[256];
 char alte_functii[10][12];
@@ -69,8 +71,8 @@ void afisare2(Node *nod){
 
 int main() {
     preprocesare();
-    citire_functie();
-    parsare_expresie(tree);
+    //citire_functie();
+    //parsare_expresie(tree);
 
 
     ///De modificat
@@ -79,95 +81,46 @@ int main() {
     nr = 1;
     creare_vector_afisare(tree, 200, 1);
 
-
-    RenderWindow window(VideoMode(1000, 1000), "Grafic functie", Style::Default);
+    RenderWindow window(VideoMode(1200, 900), "Grafic functie", Style::Default);
     window.setFramerateLimit(60);
 
-    int i = 1;
+    // Font
+    font.loadFromFile("arial.ttf");
 
-    Font font;
-    if (!font.loadFromFile("./arial.ttf"))
-        cout << "NU MERGE FONTU VARU";
+    // Title
+    Text title("Evaluator Matematic", font, 44);
+    title.setFillColor(negru);
+    title.setLetterSpacing(1.8f);
+    title.setStyle(Text::Bold);
 
-    while (window.isOpen()){
-        Event event;
-        while (window.pollEvent(event))
-            if (event.type == Event::Closed)
-                window.close();
+    FloatRect titleBounds = title.getLocalBounds();
 
-        if(i <= nr)
-            window.clear(Color::Black);
+    title.setOrigin(titleBounds.width / 2, titleBounds.height / 2);
+    title.setPosition(window.getSize().x / 2, 50);
 
-        int ok = 0;
+    // Input field
+    Text inputText("", font, 24);
+    inputText.setFillColor(negru);
+    inputText.setPosition(50, 100); // Set as needed
 
-        if(i <= nr)
-            for(int j = 1; j <= i; j++)
-                if(v[j].functie[0] != '\0'){
-                    ok = 1;
-               // cout << v[j].functie << " " << i << ' ' << nr << '\n';
-                    Text text;
-                    text.setFont(font);
-                    text.setString(v[j].functie);
-                    text.setCharacterSize(20);
-                    text.setFillColor(Color::White);
-                    text.setPosition(v[j].y, v[j].x);
-                    window.draw(text);
+    int input_box_width = 750;
+    int window_width_aux = windowWidth;
+    RectangleShape inputBox(Vector2f(750, 50)); // Set as needed
+    inputBox.setPosition((window_width_aux - input_box_width)*1.0f / 2.0f, 100); // Match inputText position
+    inputBox.setFillColor(alb);
+    inputBox.setOutlineColor(negru);
+    inputBox.setOutlineThickness(4.f);
 
-                    if(v[j].st)
-                    {
-                        Vertex line[] =
-                                {
-                                        Vertex(Vector2f(v[j].y, v[j].x + 20), Color::White),
-                                        Vertex(Vector2f(v[j*2].y, v[j*2].x), Color::White)
-                                };
-                        window.draw(line, 2, Lines);
-                    }
-                    if(v[j].dr)
-                    {
-                        Vertex line[] =
-                                {
-                                        Vertex(Vector2f(v[j].y, v[j].x + 20), Color::White),
-                                        Vertex(Vector2f(v[j*2+1].y, v[j*2+1].x), Color::White)
-                                };
-                        window.draw(line, 2, Lines);
-                    }
-                    if(v[j].mid) {
-                        Vertex line[] =
-                                {
-                                        Vertex(Vector2f(v[j].y, v[j].x + 20), Color::White),
-                                        Vertex(Vector2f(v[j * 2].y, v[j * 2].x), Color::White)
-                                };
-                        window.draw(line, 2, Lines);
-                    }}
-        i++;
-        if(i <= nr+1) {
+    string userInput;
 
+    // Buttons
+    initializare_butoane();
 
-            if(i == (nr + 1)){
-                Text text;
-                text.setFont(font);
-                text.setString("Raspunsul este: ");
-                text.setCharacterSize(20);
-                text.setFillColor(Color::White);
-                text.setPosition(360, 500);
-                window.draw(text);
-
-
-                text.setString(to_string(tree -> var));
-                text.setCharacterSize(20);
-                text.setFillColor(Color::White);
-                text.setPosition(520, 500);
-                window.draw(text);
-            }
-            window.display();
-        }
-        if(i > nr) {
-
-            continue;
-        }
-          //sleep(seconds(100));
-        else if(ok)
-            sleep(seconds(1));
+    while (window.isOpen()) {
+        //window.clear(gri);
+        //procesare_taste(window, userInput, buttons, inputText);
+        procesare_evenimente(window, userInput, inputText);
+        desenare(window, title, inputBox, inputText);
     }
 
     cout << "Raspunsul este: ";
