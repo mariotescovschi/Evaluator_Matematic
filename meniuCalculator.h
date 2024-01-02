@@ -5,7 +5,7 @@ using namespace std;
 using namespace sf;
 
 void initializare_butoane();
-void procesare_evenimente(RenderWindow &window, string& userInput, Text &inputText);
+void procesare_evenimente(RenderWindow &window, string& userInput, Text &inputText, Vector2f &mousePos);
 void desenare(RenderWindow &window, Text &title, RectangleShape &inputBox, Text &inputText);
 
 

@@ -22,7 +22,8 @@
 
 using namespace sf;
 using namespace std;
-
+extern bool calculare;
+extern bool desenat;
 struct Variabile{
     string nume;
     double valoare;
@@ -68,8 +69,9 @@ extern vector<Buton> butoane;
 struct Node{
     string functie;
     double var;
+    float x, y;
     Node *left, *right, *middle;
 };
 extern Node *tree;
-
+extern Node *nodul_selectat;
 #endif
