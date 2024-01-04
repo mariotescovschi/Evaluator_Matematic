@@ -1,6 +1,5 @@
 #include "graficaArbore.h"
 #include "verificareSintaxaExpresiei.h"
-Node* nodul_selectat = nullptr;
 
 float minX = 1e6, maxX = -1e6;
 
@@ -44,7 +43,6 @@ void desenare_arbore(sf::RenderWindow& window, Node* node){
 }
 
 void desenare_nod(sf::RenderWindow& window, Node* node){
-
     if (node == nullptr)
         return;
 
@@ -59,9 +57,6 @@ void desenare_nod(sf::RenderWindow& window, Node* node){
     circle.setOutlineColor(sf::Color::Black);
     circle.setOutlineThickness(2);
 
-    if (circle.getGlobalBounds().contains(pozitie_mouse))
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
-            nodul_selectat = node;
 
     sf::Text text;
     text.setFont(font);
@@ -135,6 +130,7 @@ void procesare_pozitii(Node* node, float nivel, float &nextX) {
 
 
     if (node->middle != nullptr) {
+        if(node -> middle -> left != nullptr)
         nextX -= (subarbore_stang(node->middle->left) + (float)(node->middle->right != nullptr));
         procesare_pozitii(node->middle, nivel + 1, nextX);
     }
@@ -148,7 +144,6 @@ void procesare_pozitii(Node* node, float nivel, float &nextX) {
 
 
 void mutare_arbore(Node* node, float surplus) {
-
     if (node == nullptr)
         return;
 

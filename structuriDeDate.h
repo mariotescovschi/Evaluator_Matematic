@@ -75,7 +75,6 @@ struct Node{
     Node *left, *right, *middle;
 };
 extern Node *tree;
-extern Node *nodul_selectat;
 extern sf::Vector2f pozitie_mouse;
 extern string input_expresie;
 extern string input_variabila;

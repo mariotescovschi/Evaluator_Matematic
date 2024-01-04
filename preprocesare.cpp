@@ -5,7 +5,6 @@ int putere[256];
 char alte_functii[10][12];
 char semne[10];
 
-
 void initiere_tree(){
     tree = new Node;
     tree -> left = nullptr;
