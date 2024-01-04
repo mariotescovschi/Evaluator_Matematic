@@ -9,7 +9,11 @@ add_executable(ProiectIP_EvaluatorMatematic main.cpp
         parsareExpresie.cpp
         parsareExpresie.h
         meniuCalculator.cpp
-        meniuCalculator.h)
+        meniuCalculator.h
+        graficaArbore.cpp
+        graficaArbore.h
+        verificareSintaxaExpresiei.cpp
+        verificareSintaxaExpresiei.h)
 
 find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
 include_directories(${SFML_INCLUDE_DIRS})

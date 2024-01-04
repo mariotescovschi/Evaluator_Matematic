@@ -26,7 +26,11 @@ bool are_paranteze_exterioare(string functie){
 
 void stergere_paranteze_exterioare(Node *nod){
 
-    if(paranteze_exterioare(nod -> functie)) {
+    if(are_paranteze_exterioare(nod -> functie) && nod -> functie.size() == 2)
+        lista_erori[2] = 1,
+        corect = false;
+
+    else if(paranteze_exterioare(nod -> functie)) {
         for (int i = 0; i < nod->functie.size() - 1; i++)
             nod->functie[i] = nod->functie[i + 1];
 

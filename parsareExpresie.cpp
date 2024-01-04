@@ -5,12 +5,14 @@
 #include "parsareExpresie.h"
 #include "structuriDeDate.h"
 #include "verificareParanteze.h"
+#include "meniuCalculator.h"
 using namespace std;
 int numar_variabile = 0;
 Variabile var[100];
+
+int lista_erori[4];
 //SE CAUTA O FUNCTIE MATEMATICA IN EXPRESIA CURENTA SI SE MEMOREAZA IN FIUL MIDDLE
 bool cautare_functie_matematica(Node *nod){
-
     string aux_functie;
     for(int i = 0; i < nod -> functie.size(); i++)
         if(nod -> functie[i] == '(') {
@@ -37,7 +39,6 @@ bool cautare_functie_matematica(Node *nod){
 
 //SE CAUTA O OPERATIE PRIORITARA IN EXPRESIA CURENTA SI SE IMPARTE EXPRESIA IN DOUA
 bool operand_prioritar(Node *nod){
-
     int poz_aux = 0, putere_aux = 0, nr_paranteze = 0;
     char operandul;
     bool cond = false;
@@ -118,6 +119,47 @@ double operatie(string tip_operatie, double a, double b){
     return 0;
 }
 
+void citirea_valorii_variabilei(string variabila){
+    Text prompt;
+    prompt.setFont(font);
+    prompt.setString("Introduceti valoarea lui " + variabila + ": ");
+    prompt.setCharacterSize(24);
+    prompt.setFillColor(negru);
+
+    FloatRect textBounds = prompt.getLocalBounds();
+    Vector2f pozitiePrompt(5, 200);
+    prompt.setPosition(pozitiePrompt);
+    window.draw(prompt);
+
+    RectangleShape inputBox(Vector2f(50, textBounds.height + 10));
+    inputBox.setPosition(pozitiePrompt.x + textBounds.width + 10, 200 + (textBounds.height - 10) / 2.);
+    inputBox.setFillColor(alb);
+    inputBox.setOutlineColor(negru);
+    inputBox.setOutlineThickness(4.f);
+    window.draw(inputBox);
+
+    Text inputText("", font, 24);
+    inputText.setFillColor(negru);
+    inputText.setPosition(50, 50);
+    window.draw(inputText);
+
+    RectangleShape butonOK(Vector2f(100, 50));
+    butonOK.setPosition(inputBox.getPosition().x + 10, inputBox.getPosition().y + 10);
+    butonOK.setFillColor(rosu);
+    butonOK.setOutlineColor(negru);
+    butonOK.setOutlineThickness(4.f);
+    window.draw(butonOK);
+
+    Text textOK("OK", font, 24);
+    textOK.setFillColor(negru);
+    textOK.setPosition(50, 50);
+    window.draw(textOK);
+
+    procesare_evenimente(inputText);
+
+    window.display();
+}
+
 double valoare_variabila(string variabila){
     if(variabila == "pi")
         return 3.14159265358979323846;
@@ -133,8 +175,12 @@ double valoare_variabila(string variabila){
 
     var[++numar_variabile].nume = variabila;
 
-    cout << "Introduceti valoarea lui " << variabila << ": ";
-    cin >> var[numar_variabile].valoare;
+    avem_variabile = true;
+    //citirea variabilei
+    while(avem_variabile) {
+        citirea_valorii_variabilei(variabila);
+    }
+
     var[numar_variabile].citit = true;
 
     return var[numar_variabile].valoare;
@@ -143,7 +189,8 @@ double valoare_variabila(string variabila){
 //SE VERIFICA DACA EXPRESIA CURENTA ARE OPERAND PRIORITAR, IMPARTINDU-SE IN 2, FUNCTIE MATEMATICA, CONTINUAND
 //SAU DACA ESTE UN NUMAR/VARIABIL, CALCULANDU-SE REZULTATUL
 void parsare_expresie(Node *nod){
-
+    if(!corect)
+        return;
     verificare_paranteze(nod);
 
     if(operand_prioritar(nod))
@@ -161,7 +208,9 @@ void parsare_expresie(Node *nod){
         nod -> middle = nullptr;
         nod->var = valoare_variabila(nod->functie);
     }
-}
 
-/*
- */
+    if(nod -> functie[0] == '/' && nod -> right -> var == 0)
+        lista_erori[0] = 1,
+        corect = false;
+
+}

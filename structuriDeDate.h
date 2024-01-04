@@ -19,6 +19,8 @@
 #define marimeButon sf::Vector2f(100, 100)
 #define windowWidth 1200
 #define windowHeight 900
+#define horizontal_spacing 50
+#define vertical_spacing 70
 
 using namespace sf;
 using namespace std;
@@ -65,7 +67,7 @@ struct Buton{
 };
 
 extern vector<Buton> butoane;
-
+extern float minX, maxX;
 struct Node{
     string functie;
     double var;
@@ -74,4 +76,13 @@ struct Node{
 };
 extern Node *tree;
 extern Node *nodul_selectat;
+extern sf::Vector2f pozitie_mouse;
+extern string input_expresie;
+extern string input_variabila;
+extern int lista_erori[4];
+extern vector <string> lista_mesaje;
+extern RenderWindow window;
+extern bool corect;
+extern bool valoare_variabila_afisare;
+extern bool avem_variabile;
 #endif

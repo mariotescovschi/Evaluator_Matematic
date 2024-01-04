@@ -5,8 +5,12 @@ using namespace std;
 using namespace sf;
 
 void initializare_butoane();
-void procesare_evenimente(RenderWindow &window, string& userInput, Text &inputText, Vector2f &mousePos);
-void desenare(RenderWindow &window, Text &title, RectangleShape &inputBox, Text &inputText);
+
+void procesare_evenimente(Text &inputText);
+
+void desenare_input_valoare_variabila(string nume_variabila);
+
+void desenare_calculator(RenderWindow &window, Text &title, RectangleShape &inputBox, Text &inputText);
 
 
 
