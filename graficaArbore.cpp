@@ -75,7 +75,7 @@ void desenare_nod(sf::RenderWindow& window, Node* node){
     window.draw(circle);
     window.draw(text);
 
-    if (node->left) {
+    if (node->left != nullptr) {
         sf::Vertex line[] = {
                 sf::Vertex(sf::Vector2f(node->x, node->y + radius * 1.5f)),
                 sf::Vertex(sf::Vector2f(node->left->x + radius, node->left->y + radius))
@@ -84,7 +84,7 @@ void desenare_nod(sf::RenderWindow& window, Node* node){
         desenare_arbore(window, node->left);
     }
 
-    if (node->right) {
+    if (node->right != nullptr) {
         sf::Vertex line[] = {
                 sf::Vertex(sf::Vector2f(node->x + radius * 2.0f, node->y + radius * 1.5f)),
                 sf::Vertex(sf::Vector2f(node->right->x + radius, node->right->y + radius))
@@ -93,7 +93,7 @@ void desenare_nod(sf::RenderWindow& window, Node* node){
         desenare_arbore(window, node->right);
     }
 
-    if (node->middle) {
+    if (node->middle != nullptr) {
         sf::Vertex line[] = {
                 sf::Vertex(sf::Vector2f(node->x + radius, node->y + radius * 2)),
                 sf::Vertex(sf::Vector2f(node->middle->x + radius, node->middle->y + radius))
@@ -124,6 +124,7 @@ void procesare_pozitii(Node* node, float nivel, float &nextX) {
     if (node == nullptr)
         return;
 
+    if(node -> left != nullptr)
     procesare_pozitii(node->left, nivel + 1, nextX);
 
     node->x = nextX * 1 * horizontal_spacing,
@@ -141,6 +142,7 @@ void procesare_pozitii(Node* node, float nivel, float &nextX) {
     else
         nextX++;
 
+    if(node -> right != nullptr)
     procesare_pozitii(node->right, nivel + 1, nextX);
 }
 
@@ -152,8 +154,11 @@ void mutare_arbore(Node* node, float surplus) {
 
     node->x += surplus;
 
+    if(node -> left != nullptr)
     mutare_arbore(node->left, surplus);
+    if(node -> middle != nullptr)
     mutare_arbore(node->middle, surplus);
+    if(node -> right != nullptr)
     mutare_arbore(node->right, surplus);
 }
 
