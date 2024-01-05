@@ -5,8 +5,8 @@ float minX = 1e6, maxX = -1e6;
 Node* nodul_selectat = nullptr;
 
 void creare_arbore(){
-    tree->functie = input_expresie;
     corect = verificare_sintaxa_expresiei();
+    tree->functie = input_expresie;
     parsare_expresie(tree);
 
     if(!corect) {

@@ -41,7 +41,6 @@ void initializare_butoane() {
     calculeaza.text.setPosition(calculeaza.shape.getPosition() + Vector2f(2 * marimeButon.x + spacing, 0.6f * marimeButon.y) * 0.5f);
     butoane.push_back(calculeaza);
 
-
 }
 
 void procesare_evenimente(Text &inputText) {
@@ -153,7 +152,7 @@ void procesare_evenimente(Text &inputText) {
 
             if (nodul_selectat != nullptr)
                 nodul_selectat->x = mousePos.x - 20,
-                        nodul_selectat->y = mousePos.y - 20;
+                nodul_selectat->y = mousePos.y - 20;
         }
     }
 
@@ -182,42 +181,6 @@ void afisare_erori() {
 }
 
 void desenare_input_valoare_variabila(string nume_variabila) {
-    Text prompt;
-    prompt.setFont(font);
-    prompt.setString("Introduceti valoarea variabilei " + nume_variabila + ": ");
-    prompt.setCharacterSize(30);
-    prompt.setFillColor(negru);
-
-    FloatRect textBounds = prompt.getLocalBounds();
-    Vector2f pozitiePrompt(1000 - textBounds.width / 2, 200);
-    prompt.setPosition(pozitiePrompt);
-    window.draw(prompt);
-
-    RectangleShape inputBox(Vector2f(pozitiePrompt.x + textBounds.width + 10, 200));
-    inputBox.setPosition(pozitiePrompt.x + textBounds.width + 10, 200);
-    inputBox.setFillColor(alb);
-    inputBox.setOutlineColor(negru);
-    inputBox.setOutlineThickness(4.f);
-    window.draw(inputBox);
-
-
-    Text inputText("", font, 24);
-
-    RectangleShape butonOK(Vector2f(100, 50));
-    butonOK.setPosition(50, 50);
-    butonOK.setFillColor(rosu);
-    butonOK.setOutlineColor(negru);
-    butonOK.setOutlineThickness(4.f);
-    window.draw(butonOK);
-
-    Text textOK("OK", font, 24);
-    textOK.setFillColor(negru);
-    textOK.setPosition(50, 50);
-    window.draw(textOK);
-
-
-    //while(avem_variabile)
-      //s  procesare_evenimente(inputText);
 }
 
 void desenare_calculator(RenderWindow &window, Text &title, RectangleShape &inputBox, Text &inputText) {
@@ -245,6 +208,7 @@ void desenare_calculator(RenderWindow &window, Text &title, RectangleShape &inpu
         Vector2f pozitieErori(1000 - textBounds.width / 2, 200);
         text.setPosition(pozitieErori);
         window.draw(text);
+
         afisare_erori();
     }
 

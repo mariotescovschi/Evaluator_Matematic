@@ -23,7 +23,6 @@ int main() {
     preprocesare();
 
     window.setFramerateLimit(120);
-
     font.loadFromFile("arial.ttf");
 
     Text title("Evaluator Matematic", font, 44);

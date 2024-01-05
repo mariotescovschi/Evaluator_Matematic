@@ -68,13 +68,16 @@ struct Buton{
 
 extern vector<Buton> butoane;
 extern float minX, maxX;
+
 struct Node{
     string functie;
     double var;
     float x, y;
     Node *left, *right, *middle;
 };
+
 extern Node *tree;
+
 extern sf::Vector2f pozitie_mouse;
 extern string input_expresie;
 extern string input_variabila;
