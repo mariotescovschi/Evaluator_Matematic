@@ -41,3 +41,11 @@
 638	829	1704395103835566422	ProiectIP_EvaluatorMatematic	91b1369a0ab392f2
 5	818	1704395192266488732	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/graficaArbore.cpp.o	295bc1a7af32c0bf
 818	972	1704395192422496451	ProiectIP_EvaluatorMatematic	91b1369a0ab392f2
+4	1072	1704467880583135914	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/verificareParanteze.cpp.o	24257e98372fffef
+4	1092	1704467880602616354	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/preprocesare.cpp.o	685e75c27ad40e03
+4	1116	1704467880627755242	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/parsareExpresie.cpp.o	4d9c7e04612162e
+5	1126	1704467880637632815	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/graficaArbore.cpp.o	295bc1a7af32c0bf
+4	1156	1704467880669543013	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/main.cpp.o	cf4517ee895f25ab
+5	1238	1704467880751042951	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/meniuCalculator.cpp.o	3855935b553497ca
+1073	1518	1704467881032908632	CMakeFiles/ProiectIP_EvaluatorMatematic.dir/verificareSintaxaExpresiei.cpp.o	ec57b3968d8cd9a1
+1518	2934	1704467882450048797	ProiectIP_EvaluatorMatematic	91b1369a0ab392f2

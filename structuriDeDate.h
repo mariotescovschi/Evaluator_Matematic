@@ -84,5 +84,5 @@ extern RenderWindow window;
 extern bool corect;
 extern bool valoare_variabila_afisare;
 extern bool avem_variabile;
-extern Node *nodul_selectat
+extern Node *nodul_selectat;
 #endif
