@@ -145,6 +145,15 @@ void procesare_evenimente(Text &inputText) {
             inputText.setPosition(Vector2f(window.getSize().x / 2.0f, 110.0f));
         }
         else{
+            sf::Vector2f mousePos = static_cast<sf::Vector2f>(sf::Mouse::getPosition(window));
+
+            if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
+                nodul_selectat = nullptr;
+
+
+            if (nodul_selectat != nullptr)
+                nodul_selectat->x = mousePos.x - 20,
+                        nodul_selectat->y = mousePos.y - 20;
         }
     }
 

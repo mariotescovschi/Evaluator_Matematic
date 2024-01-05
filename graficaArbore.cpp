@@ -2,6 +2,7 @@
 #include "verificareSintaxaExpresiei.h"
 
 float minX = 1e6, maxX = -1e6;
+Node* nodul_selectat = nullptr;
 
 void creare_arbore(){
     tree->functie = input_expresie;
@@ -46,7 +47,6 @@ void desenare_nod(sf::RenderWindow& window, Node* node){
     if (node == nullptr)
         return;
 
-
     float baseRadius = 20.0f;
     int textLength = node->functie.length();
     float radius = std::max(baseRadius, textLength * 5.0f);
@@ -57,6 +57,9 @@ void desenare_nod(sf::RenderWindow& window, Node* node){
     circle.setOutlineColor(sf::Color::Black);
     circle.setOutlineThickness(2);
 
+    if (circle.getGlobalBounds().contains(pozitie_mouse))
+        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            nodul_selectat = node;
 
     sf::Text text;
     text.setFont(font);
