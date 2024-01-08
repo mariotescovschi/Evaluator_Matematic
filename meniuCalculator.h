@@ -6,11 +6,11 @@ using namespace sf;
 
 void initializare_butoane();
 
-void procesare_evenimente(Text &inputText);
+void procesare_evenimente();
 
-void desenare_input_valoare_variabila(string nume_variabila);
+void desenare_input_valoare_variabila();
 
-void desenare_calculator(RenderWindow &window, Text &title, RectangleShape &inputBox, Text &inputText);
+void desenare_calculator();
 
 
 

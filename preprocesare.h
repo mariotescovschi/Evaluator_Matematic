@@ -4,8 +4,4 @@
 #include <SFML/Graphics.hpp>
 
 void preprocesare();
-void initiere_tree();
-void prestabilire_putere();
-void prestabilire_alte_functii();
-void prestabilire_semne();
 #endif

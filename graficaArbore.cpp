@@ -1,16 +1,18 @@
 #include "graficaArbore.h"
 #include "verificareSintaxaExpresiei.h"
 
-float minX = 1e6, maxX = -1e6;
+///Eventual de afisat in aceeasi pagina cu arborele si variabilele necunoscute cu valorile lor
+///Poate si un buton de back
 Node* nodul_selectat = nullptr;
 
 void creare_arbore(){
     corect = verificare_sintaxa_expresiei();
     tree->functie = input_expresie;
+
     parsare_expresie(tree);
 
     if(!corect) {
-        calculare = false;
+        calculeaza_apasat = false;
         return;
     }
 
@@ -18,11 +20,10 @@ void creare_arbore(){
     procesare_pozitii(tree, 0, nextX);
     centrare_arbore(tree);
 
-    desenat = true;
+    arbore_desenat = true;
 }
 
-void desenare_raspuns(sf::RenderWindow& window){
-
+void desenare_raspuns(){
     sf::Text text;
     text.setFont(font);
     text.setString("Raspunsul este: " + to_string(tree -> var));
@@ -35,15 +36,14 @@ void desenare_raspuns(sf::RenderWindow& window){
     window.draw(text);
 }
 
-void desenare_arbore(sf::RenderWindow& window, Node* node){
-    if (node == nullptr)
-        return;
+void desenare_arbore(Node* node){
 
-    desenare_nod(window, node);
-    desenare_raspuns(window);
+    desenare_nod(node);
+    desenare_raspuns();
 }
 
-void desenare_nod(sf::RenderWindow& window, Node* node){
+//Deseneaza recursiv fiecare nod si muchiile dintre ele
+void desenare_nod(Node* node){
     if (node == nullptr)
         return;
 
@@ -79,7 +79,7 @@ void desenare_nod(sf::RenderWindow& window, Node* node){
                 sf::Vertex(sf::Vector2f(node->left->x + radius, node->left->y + radius))
         };
         window.draw(line, 2, sf::Lines);
-        desenare_arbore(window, node->left);
+        desenare_arbore(node->left);
     }
 
     if (node->right != nullptr) {
@@ -88,7 +88,7 @@ void desenare_nod(sf::RenderWindow& window, Node* node){
                 sf::Vertex(sf::Vector2f(node->right->x + radius, node->right->y + radius))
         };
         window.draw(line, 2, sf::Lines);
-        desenare_arbore(window, node->right);
+        desenare_arbore(node->right);
     }
 
     if (node->middle != nullptr) {
@@ -97,7 +97,7 @@ void desenare_nod(sf::RenderWindow& window, Node* node){
                 sf::Vertex(sf::Vector2f(node->middle->x + radius, node->middle->y + radius))
         };
         window.draw(line, 2, sf::Lines);
-        desenare_arbore(window, node->middle);
+        desenare_arbore(node->middle);
     }
 }
 

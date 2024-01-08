@@ -8,11 +8,11 @@
 #include <vector>
 #include <queue>
 
-void desenare_raspuns(sf::RenderWindow& window);
+void desenare_raspuns();
 
 void creare_arbore();
 
-void desenare_nod(sf::RenderWindow& window, Node* node);
+void desenare_nod(Node* node);
 
 void centrare_arbore(Node* root);
 
@@ -22,6 +22,6 @@ void procesare_pozitii(Node* node, float nivel, float &nextX);
 
 float subarbore_stang(Node* node);
 
-void desenare_arbore(sf::RenderWindow& window, Node* node);
+void desenare_arbore(Node* node);
 
 #endif

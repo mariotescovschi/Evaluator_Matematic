@@ -1,9 +1,5 @@
 #include "preprocesare.h"
-
-
-int putere[256];
-char alte_functii[10][12];
-char semne[10];
+#include "meniuCalculator.h"
 
 void initiere_tree(){
     tree = new Node;
@@ -40,9 +36,17 @@ void prestabilire_alte_functii(){
 void prestabilire_semne(){
     strcpy(semne, "+-*/^#<>=");
 }
+
+void grafica(){
+    window.setFramerateLimit(120);
+    font.loadFromFile("arial.ttf");
+    initializare_butoane();
+}
+
 void preprocesare(){
     initiere_tree();
     prestabilire_putere();
     prestabilire_alte_functii();
     prestabilire_semne();
+    grafica();
 }

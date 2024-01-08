@@ -6,10 +6,11 @@ vector <string> lista_mesaje = {
     "Operatori nu sunt corecti.",
     "Paranteze goale.",
     "Paranteze gresite.",
+    "Nu poate fi negativ.",
+    "Nu poate fi 0/negativ."
 };
 
 bool verificare_sintaxa_expresiei(){
-    verificare_inmultire_cu_paranteze();
     stergere_spatii_goale();
 
     if(!impartire_la_zero())
@@ -70,26 +71,6 @@ bool verificare_paranteze() {
     }
 
     return !top;
-}
-
-void verificare_inmultire_cu_paranteze() {
-    string string_aux;
-    char caracter_prec = '\0';
-
-    for (char ch : input_expresie) {
-        if (ch == '(') {
-            if (isdigit(caracter_prec) || (!este_operator(caracter_prec) && caracter_prec != '(' && caracter_prec != '\0'))
-                string_aux += '*';
-        }
-        else if (caracter_prec == ')') {
-            if (isdigit(ch) || !este_operator(ch) && ch == '(')
-                string_aux += '*';
-        }
-        string_aux += ch;
-        caracter_prec = ch;
-    }
-
-    input_expresie = string_aux;
 }
 
 bool paranteze_goale() {

@@ -13,7 +13,8 @@ add_executable(ProiectIP_EvaluatorMatematic main.cpp
         graficaArbore.cpp
         graficaArbore.h
         verificareSintaxaExpresiei.cpp
-        verificareSintaxaExpresiei.h)
+        verificareSintaxaExpresiei.h
+        structuriDeDate.cpp)
 
 find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
 include_directories(${SFML_INCLUDE_DIRS})
