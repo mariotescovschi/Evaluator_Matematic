@@ -1,9 +1,9 @@
 #include "graficaArbore.h"
 #include "verificareSintaxaExpresiei.h"
 
-///Eventual de afisat in aceeasi pagina cu arborele si variabilele necunoscute cu valorile lor
-///Poate si un buton de back
 Node* nodul_selectat = nullptr;
+
+void desenare_buton_inapoi();
 
 void creare_arbore(){
     corect = verificare_sintaxa_expresiei();
@@ -24,14 +24,15 @@ void creare_arbore(){
 }
 
 void desenare_raspuns(){
-    sf::Text text;
+    Text text;
     text.setFont(font);
     text.setString("Raspunsul este: " + to_string(tree -> var));
     text.setCharacterSize(35);
-    text.setFillColor(sf::Color::Black);
-    sf::FloatRect textRect = text.getLocalBounds();
+    text.setFillColor(Color::Black);
+
+    FloatRect textRect = text.getLocalBounds();
     text.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
-    text.setPosition(600, 750);
+    text.setPosition(600, 850);
     text.setStyle(Text::Bold);
     window.draw(text);
 }
@@ -40,6 +41,7 @@ void desenare_arbore(Node* node){
 
     desenare_nod(node);
     desenare_raspuns();
+    desenare_buton_inapoi();
 }
 
 //Deseneaza recursiv fiecare nod si muchiile dintre ele
@@ -49,24 +51,25 @@ void desenare_nod(Node* node){
 
     float baseRadius = 20.0f;
     int textLength = node->functie.length();
-    float radius = std::max(baseRadius, textLength * 5.0f);
+    float radius = max(baseRadius, textLength * 5.0f);
 
-    sf::CircleShape circle(radius);
+    CircleShape circle(radius);
     circle.setPosition(node->x, node->y);
-    circle.setFillColor(sf::Color::White);
-    circle.setOutlineColor(sf::Color::Black);
+    circle.setFillColor(Color::White);
+    circle.setOutlineColor(Color::Black);
     circle.setOutlineThickness(2);
 
     if (circle.getGlobalBounds().contains(pozitie_mouse))
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        if (Mouse::isButtonPressed(Mouse::Left))
             nodul_selectat = node;
 
-    sf::Text text;
+    Text text;
     text.setFont(font);
     text.setString(node->functie);
     text.setCharacterSize(18);
-    text.setFillColor(sf::Color::Black);
-    sf::FloatRect textRect = text.getLocalBounds();
+    text.setFillColor(Color::Black);
+
+    FloatRect textRect = text.getLocalBounds();
     text.setOrigin(textRect.left + textRect.width / 2.0f, textRect.top + textRect.height / 2.0f);
     text.setPosition(node->x + radius, node->y + radius);
 
@@ -74,29 +77,29 @@ void desenare_nod(Node* node){
     window.draw(text);
 
     if (node->left != nullptr) {
-        sf::Vertex line[] = {
-                sf::Vertex(sf::Vector2f(node->x, node->y + radius * 1.5f)),
-                sf::Vertex(sf::Vector2f(node->left->x + radius, node->left->y + radius))
+        Vertex line[] = {
+                Vertex(Vector2f(node->x, node->y + radius * 1.5f)),
+                Vertex(Vector2f(node->left->x + radius, node->left->y + radius))
         };
-        window.draw(line, 2, sf::Lines);
+        window.draw(line, 2, Lines);
         desenare_arbore(node->left);
     }
 
     if (node->right != nullptr) {
-        sf::Vertex line[] = {
-                sf::Vertex(sf::Vector2f(node->x + radius * 2.0f, node->y + radius * 1.5f)),
-                sf::Vertex(sf::Vector2f(node->right->x + radius, node->right->y + radius))
+        Vertex line[] = {
+                Vertex(Vector2f(node->x + radius * 2.0f, node->y + radius * 1.5f)),
+                Vertex(Vector2f(node->right->x + radius, node->right->y + radius))
         };
-        window.draw(line, 2, sf::Lines);
+        window.draw(line, 2, Lines);
         desenare_arbore(node->right);
     }
 
     if (node->middle != nullptr) {
-        sf::Vertex line[] = {
-                sf::Vertex(sf::Vector2f(node->x + radius, node->y + radius * 2)),
-                sf::Vertex(sf::Vector2f(node->middle->x + radius, node->middle->y + radius))
+        Vertex line[] = {
+                Vertex(Vector2f(node->x + radius, node->y + radius * 2)),
+                Vertex(Vector2f(node->middle->x + radius, node->middle->y + radius))
         };
-        window.draw(line, 2, sf::Lines);
+        window.draw(line, 2, Lines);
         desenare_arbore(node->middle);
     }
 }
@@ -128,6 +131,7 @@ void procesare_pozitii(Node* node, float nivel, float &nextX) {
     node->x = nextX * 1 * horizontal_spacing,
             node->y = 30 + nivel * vertical_spacing;
 
+    cout << "HORIZONTAL_SPACING: " << horizontal_spacing << '\n';
     minX = min(minX, nextX),
             maxX = max(maxX, nextX);
 
@@ -168,8 +172,20 @@ void centrare_arbore(Node* root) {
     else
         surplus = 600.0f - ((maxX - minX) / 2.0f + 0.5f) * horizontal_spacing;
 
-    cout << minX << " " << maxX << " " << surplus << endl;
     mutare_arbore(root, surplus);
 }
 
+void desenare_buton_inapoi(){
 
+    buton_inapoi.setPosition(20, 20);
+    buton_inapoi.setFillColor(alb);
+    buton_inapoi.setOutlineColor(negru);
+    buton_inapoi.setOutlineThickness(2.0f);
+    window.draw(buton_inapoi);
+
+    Text text_inapoi("Inapoi", font, 24);
+
+    text_inapoi.setFillColor(negru);
+    text_inapoi.setPosition(buton_inapoi.getPosition().x + 2, buton_inapoi.getPosition().y);
+    window.draw(text_inapoi);
+}

@@ -19,11 +19,14 @@ char alte_functii[10][12];
 char semne[10];
 
 float valoare_necunoscuta = 0;
+float vertical_spacing = 70;
+float horizontal_spacing = 50;
 
 string input_variabila;
 string eticheta_necunoscuta;
 
 vector <Buton> butoane;
 RectangleShape buton_ok(Vector2f(40, 30));
+RectangleShape buton_inapoi(Vector2f(70, 30));
 
 Variabile var[100];

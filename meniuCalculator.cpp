@@ -7,12 +7,13 @@ void initializare_butoane() {
             "7", "8", "9", "/",
             "4", "5", "6", "*",
             "1", "2", "3", ".",
-            "+", "0", "-", "+",
-            "SIN", "COS", "TAN", "C"
+            "+", "0", "-", "(",
+            "sin", "cos", "tan", ")",
+            "cot", "atan", "log", "ln"
     };
 
+
     float start_x = (windowWidth - (col * marimeButon.x) - (spatiu * (col - 1))) / 2.0f;
-    cout << start_x;
     float start_y = 180.0f;
 
     for (int i = 0; i < taste.size(); i++) {
@@ -36,7 +37,18 @@ void initializare_butoane() {
     calculeaza.text.setOrigin(limita.left + limita.width / 2.0f, limita.top + limita.height / 2.0f);
     calculeaza.text.setPosition(calculeaza.forma.getPosition() + Vector2f(2 * marimeButon.x + spatiu, 0.6f * marimeButon.y) * 0.5f);
 
+    //Buton clear
+    Vector2f pozitie_clear(290, 100);
+    string eticheta_clear = "C";
+    Buton clear(pozitie_clear, eticheta_clear);
+
+    clear.forma.setSize(Vector2f(0.6f * marimeButon.x + spatiu, 0.6f * marimeButon.y));
+
+    clear.text.setOrigin(limita.left + limita.width / 1.9f, limita.top + limita.height / 1.1f);
+    clear.text.setPosition(clear.forma.getPosition() + Vector2f(2 * marimeButon.x + spatiu, 0.7f * marimeButon.y) * 0.6f);
+
     butoane.push_back(calculeaza);
+    butoane.push_back(clear);
 }
 
 //Functia verifica daca inputul este corect si calculeaza valoarea in valoare_necunoscuta
@@ -87,7 +99,6 @@ void verifica_input_variabila(){
         else
             valoare_necunoscuta += (input_variabila[i] - '0') * pow(10, pozitie_punct - i);
 
-        cout << valoare_necunoscuta << '\n';
 
     }
 
@@ -116,7 +127,7 @@ void procesare_evenimente() {
                         if (eticheta_buton == "C")
                             input_expresie.clear();
 
-                        else if (eticheta_buton == "SIN" || eticheta_buton == "COS" || eticheta_buton == "TAN")
+                        else if (eticheta_buton == "sin" || eticheta_buton == "cos" || eticheta_buton == "tan")
                             input_expresie += (eticheta_buton + "(");
 
                         else if (eticheta_buton == "Calculeaza") {
@@ -191,14 +202,23 @@ void procesare_evenimente() {
 
         //Selecteaza nodul pentru a fi mutat
         else{
-            sf::Vector2f mousePos = static_cast<sf::Vector2f>(sf::Mouse::getPosition(window));
+            Vector2f mousePos = static_cast<Vector2f>(Mouse::getPosition(window));
 
-            if (!sf::Mouse::isButtonPressed(sf::Mouse::Left))
+            if (!Mouse::isButtonPressed(Mouse::Left))
                 nodul_selectat = nullptr;
 
             if (nodul_selectat != nullptr)
                 nodul_selectat->x = mousePos.x - 20,
                 nodul_selectat->y = mousePos.y - 20;
+
+            if(Mouse::isButtonPressed(Mouse::Left) && buton_inapoi.getGlobalBounds().contains(pozitie_mouse)){
+                    avem_necunoscute = false;
+                    calculeaza_apasat = false;
+                    arbore_desenat = false;
+                    input_variabila.clear();
+                    input_expresie.clear();
+                    horizontal_spacing = 50;
+                }
         }
     }
 

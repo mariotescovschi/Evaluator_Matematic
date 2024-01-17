@@ -9,18 +9,10 @@
 #define alb sf::Color::White
 #define negru sf::Color::Black
 #define gri sf::Color(200, 200, 200)
-#define griDeschis sf::Color(230, 230, 230)
-#define griInchis sf::Color(150, 150, 150)
 #define rosu sf::Color::Red
-#define verde sf::Color::Green
 #define albastru sf::Color::Blue
-#define galben sf::Color::Yellow
-#define violet sf::Color(148, 0, 211)
 #define marimeButon sf::Vector2f(100, 100)
 #define windowWidth 1200
-#define windowHeight 900
-#define horizontal_spacing 50
-#define vertical_spacing 70
 using namespace sf;
 using namespace std;
 
@@ -97,6 +89,8 @@ extern Node *nodul_selectat;
 
 extern string eticheta_necunoscuta;
 extern RectangleShape buton_ok;
+extern RectangleShape buton_inapoi;
 
-
+extern float horizontal_spacing;
+extern float vertical_spacing;
 #endif

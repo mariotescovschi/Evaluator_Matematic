@@ -1,8 +1,5 @@
-#include <iostream>
-#include <queue>
 #include <SFML/Graphics.hpp>
 #include "structuriDeDate.h"
-#include "parsareExpresie.h"
 #include "meniuCalculator.h"
 #include "preprocesare.h"
 #include "graficaArbore.h"
@@ -37,8 +34,3 @@ int main() {
 
     return 0;
 }
-///REGULI
-/*
-    1. Orice numar negativ trebuie sa fie intre paranteze
-
-*/
