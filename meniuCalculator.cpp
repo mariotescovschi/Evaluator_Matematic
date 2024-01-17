@@ -98,8 +98,6 @@ void verifica_input_variabila(){
             valoare_necunoscuta = valoare_necunoscuta * 10 + (input_variabila[i] - '0');
         else
             valoare_necunoscuta += (input_variabila[i] - '0') * pow(10, pozitie_punct - i);
-
-
     }
 
     if(negativ)
@@ -144,7 +142,10 @@ void procesare_evenimente() {
                 }
             }
 
-        if (event.type == Event::TextEntered) {
+        if(event.type == Event::KeyPressed && event.key.code == Keyboard::Enter)
+            calculeaza_apasat = true;
+
+        else if (event.type == Event::TextEntered) {
             if (event.text.unicode == '\b' && !input_expresie.empty())
                 input_expresie.pop_back();
 
@@ -217,7 +218,7 @@ void procesare_evenimente() {
                     arbore_desenat = false;
                     input_variabila.clear();
                     input_expresie.clear();
-                    horizontal_spacing = 50;
+                    numar_variabile = 0;
                 }
         }
     }

@@ -128,10 +128,9 @@ void procesare_pozitii(Node* node, float nivel, float &nextX) {
     if(node -> left != nullptr)
     procesare_pozitii(node->left, nivel + 1, nextX);
 
-    node->x = nextX * 1 * horizontal_spacing,
+    node->x = nextX * 1.0f * horizontal_spacing,
             node->y = 30 + nivel * vertical_spacing;
 
-    cout << "HORIZONTAL_SPACING: " << horizontal_spacing << '\n';
     minX = min(minX, nextX),
             maxX = max(maxX, nextX);
 
@@ -180,11 +179,11 @@ void desenare_buton_inapoi(){
     buton_inapoi.setPosition(20, 20);
     buton_inapoi.setFillColor(alb);
     buton_inapoi.setOutlineColor(negru);
-    buton_inapoi.setOutlineThickness(2.0f);
+    buton_inapoi.setOutlineThickness(3.0f);
     window.draw(buton_inapoi);
 
-    Text text_inapoi("Inapoi", font, 24);
-
+    Text text_inapoi("Inapoi", font, 23);
+    text_inapoi.setStyle(Text::Bold);
     text_inapoi.setFillColor(negru);
     text_inapoi.setPosition(buton_inapoi.getPosition().x + 2, buton_inapoi.getPosition().y);
     window.draw(text_inapoi);

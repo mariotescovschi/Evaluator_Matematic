@@ -7,7 +7,6 @@
 #include "verificareParanteze.h"
 #include "meniuCalculator.h"
 using namespace std;
-int numar_variabile = 0;
 
 int lista_erori[6];
 //SE CAUTA O FUNCTIE MATEMATICA IN EXPRESIA CURENTA SI SE MEMOREAZA IN FIUL MIDDLE

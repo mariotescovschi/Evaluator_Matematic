@@ -49,6 +49,7 @@ extern float valoare_necunoscuta;
 extern int putere[256];
 extern char alte_functii[10][12];
 extern char semne[10];
+extern int numar_variabile;
 
 //Partea grafica
 extern Font font;

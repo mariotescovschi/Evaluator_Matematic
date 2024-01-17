@@ -17,6 +17,7 @@ float minX = 1e6, maxX = -1e6;
 int putere[256];
 char alte_functii[10][12];
 char semne[10];
+int numar_variabile = 0;
 
 float valoare_necunoscuta = 0;
 float vertical_spacing = 70;
