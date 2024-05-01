@@ -10,13 +10,13 @@ int main() {
     while (window.isOpen()) {
         pozitie_mouse = Vector2f(Mouse::getPosition(window));
 
-        //Daca este apasat butonul Calculeaza
+        //If the Calculate button is pressed
         if(calculeaza_apasat){
-            //Daca nu am desenat arborele, procesam expresia si coordonatele nodurilor
+            //If we haven't drawn the tree, process the expression and the coordinates of the nodes
             if(!arbore_desenat)
-                creare_arbore();
+                create_tree();
 
-            //Daca expresia este corecta si nu mai avem necunoscute, desenam arborele
+            //If expression is correct and we don't have unknowns, draw the tree
             if(corect && !avem_necunoscute) {
                 window.clear(gri);
                 desenare_arbore(tree);

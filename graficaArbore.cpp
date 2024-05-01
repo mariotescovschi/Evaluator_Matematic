@@ -1,11 +1,11 @@
 #include "graficaArbore.h"
 #include "verificareSintaxaExpresiei.h"
 
-Node* nodul_selectat = nullptr;
+Node* selected_node = nullptr;
 
 void desenare_buton_inapoi();
 
-void creare_arbore(){
+void create_tree(){
     corect = verificare_sintaxa_expresiei();
     tree->functie = input_expresie;
 
@@ -17,13 +17,13 @@ void creare_arbore(){
     }
 
     float nextX = 0;
-    procesare_pozitii(tree, 0, nextX);
-    centrare_arbore(tree);
+    process_positions(tree, 0, nextX);
+    center_tree(tree);
 
     arbore_desenat = true;
 }
 
-void desenare_raspuns(){
+void draw_answer(){
     Text text;
     text.setFont(font);
     text.setString("Raspunsul este: " + to_string(tree -> var));
@@ -39,13 +39,13 @@ void desenare_raspuns(){
 
 void desenare_arbore(Node* node){
 
-    desenare_nod(node);
-    desenare_raspuns();
+    draw_node(node);
+    draw_answer();
     desenare_buton_inapoi();
 }
 
 //Deseneaza recursiv fiecare nod si muchiile dintre ele
-void desenare_nod(Node* node){
+void draw_node(Node* node){
     if (node == nullptr)
         return;
 
@@ -61,7 +61,7 @@ void desenare_nod(Node* node){
 
     if (circle.getGlobalBounds().contains(pozitie_mouse))
         if (Mouse::isButtonPressed(Mouse::Left))
-            nodul_selectat = node;
+            selected_node = node;
 
     Text text;
     text.setFont(font);
@@ -120,13 +120,13 @@ float subarbore_stang(Node* node){
     return cnt;
 }
 
-void procesare_pozitii(Node* node, float nivel, float &nextX) {
+void process_positions(Node* node, float nivel, float &nextX) {
 
     if (node == nullptr)
         return;
 
     if(node -> left != nullptr)
-    procesare_pozitii(node->left, nivel + 1, nextX);
+        process_positions(node->left, nivel + 1, nextX);
 
     node->x = nextX * 1.0f * horizontal_spacing,
             node->y = 30 + nivel * vertical_spacing;
@@ -138,32 +138,32 @@ void procesare_pozitii(Node* node, float nivel, float &nextX) {
     if (node->middle != nullptr) {
         if(node -> middle -> left != nullptr)
         nextX -= (subarbore_stang(node->middle->left) + (float)(node->middle->right != nullptr));
-        procesare_pozitii(node->middle, nivel + 1, nextX);
+        process_positions(node->middle, nivel + 1, nextX);
     }
 
     else
         nextX++;
 
     if(node -> right != nullptr)
-    procesare_pozitii(node->right, nivel + 1, nextX);
+        process_positions(node->right, nivel + 1, nextX);
 }
 
 
-void mutare_arbore(Node* node, float surplus) {
+void move_tree(Node* node, float surplus) {
     if (node == nullptr)
         return;
 
     node->x += surplus;
 
     if(node -> left != nullptr)
-    mutare_arbore(node->left, surplus);
+        move_tree(node->left, surplus);
     if(node -> middle != nullptr)
-    mutare_arbore(node->middle, surplus);
+        move_tree(node->middle, surplus);
     if(node -> right != nullptr)
-    mutare_arbore(node->right, surplus);
+        move_tree(node->right, surplus);
 }
 
-void centrare_arbore(Node* root) {
+void center_tree(Node* root) {
 
     float surplus;
     if(minX < 0)
@@ -171,7 +171,7 @@ void centrare_arbore(Node* root) {
     else
         surplus = 600.0f - ((maxX - minX) / 2.0f + 0.5f) * horizontal_spacing;
 
-    mutare_arbore(root, surplus);
+    move_tree(root, surplus);
 }
 
 void desenare_buton_inapoi(){

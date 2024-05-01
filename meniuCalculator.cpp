@@ -206,11 +206,11 @@ void procesare_evenimente() {
             Vector2f mousePos = static_cast<Vector2f>(Mouse::getPosition(window));
 
             if (!Mouse::isButtonPressed(Mouse::Left))
-                nodul_selectat = nullptr;
+                selected_node = nullptr;
 
-            if (nodul_selectat != nullptr)
-                nodul_selectat->x = mousePos.x - 20,
-                nodul_selectat->y = mousePos.y - 20;
+            if (selected_node != nullptr)
+                selected_node->x = mousePos.x - 20,
+                        selected_node->y = mousePos.y - 20;
 
             if(Mouse::isButtonPressed(Mouse::Left) && buton_inapoi.getGlobalBounds().contains(pozitie_mouse)){
                     avem_necunoscute = false;

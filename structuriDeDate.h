@@ -86,7 +86,7 @@ extern string input_expresie;
 extern string input_variabila;
 extern int lista_erori[6];
 extern vector <string> lista_mesaje;
-extern Node *nodul_selectat;
+extern Node *selected_node;
 
 extern string eticheta_necunoscuta;
 extern RectangleShape buton_ok;

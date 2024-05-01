@@ -8,17 +8,17 @@
 #include <vector>
 #include <queue>
 
-void desenare_raspuns();
+void draw_answer();
 
-void creare_arbore();
+void create_tree();
 
-void desenare_nod(Node* node);
+void draw_node(Node* node);
 
-void centrare_arbore(Node* root);
+void center_tree(Node* root);
 
-void mutare_arbore(Node* node, float surplus);
+void move_tree(Node* node, float surplus);
 
-void procesare_pozitii(Node* node, float nivel, float &nextX);
+void process_positions(Node* node, float nivel, float &nextX);
 
 float subarbore_stang(Node* node);
 
