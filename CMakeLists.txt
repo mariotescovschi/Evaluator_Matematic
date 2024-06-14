@@ -4,17 +4,17 @@ project(ProiectIP_EvaluatorMatematic)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(ProiectIP_EvaluatorMatematic main.cpp
-        verificareParanteze.cpp
-        preprocesare.cpp
-        parsareExpresie.cpp
-        parsareExpresie.h
-        meniuCalculator.cpp
-        meniuCalculator.h
-        graficaArbore.cpp
-        graficaArbore.h
-        verificareSintaxaExpresiei.cpp
-        verificareSintaxaExpresiei.h
-        structuriDeDate.cpp)
+        parsing/verificareParanteze.cpp
+        setup/preprocesare.cpp
+        parsing/parsareExpresie.cpp
+        parsing/parsareExpresie.h
+        graphics/meniuCalculator.cpp
+        graphics/meniuCalculator.h
+        graphics/graficaArbore.cpp
+        graphics/graficaArbore.h
+        parsing/verificareSintaxaExpresiei.cpp
+        parsing/verificareSintaxaExpresiei.h
+        setup/structuriDeDate.cpp)
 
 find_package(SFML 2.5 COMPONENTS system window graphics network audio REQUIRED)
 include_directories(${SFML_INCLUDE_DIRS})

@@ -1,11 +1,13 @@
 #ifndef UNTITLED8_STRUCTURIDEDATE_H
 #define UNTITLED8_STRUCTURIDEDATE_H
+
 #include <string>
 #include <SFML/Graphics.hpp>
 #include <iostream>
 #include <vector>
 #include <queue>
 #include <string>
+
 #define alb sf::Color::White
 #define negru sf::Color::Black
 #define gri sf::Color(200, 200, 200)
@@ -17,14 +19,14 @@ using namespace sf;
 using namespace std;
 
 //Structuri de date
-struct Variabile{
+struct Variabile {
     string nume;
     double valoare;
     bool citit;
 };
 extern Variabile var[100];
 
-struct Node{
+struct Node {
     string functie;
     double var;
     float x, y;
@@ -32,7 +34,7 @@ struct Node{
 };
 extern Node *tree;
 
-struct TextInput{
+struct TextInput {
     Text text;
     RectangleShape forma;
 };
@@ -55,11 +57,11 @@ extern int numar_variabile;
 extern Font font;
 extern RenderWindow window;
 
-struct Buton{
+struct Buton {
     RectangleShape forma;
     Text text;
 
-    Buton(Vector2f& pozitie, string& eticheta) {
+    Buton(Vector2f &pozitie, string &eticheta) {
         forma.setSize(marimeButon);
         forma.setFillColor(alb);
         forma.setOutlineColor(negru);
@@ -78,6 +80,7 @@ struct Buton{
         text.setPosition(forma.getPosition() + marimeButon * 0.5f);
     }
 };
+
 extern vector<Buton> butoane;
 
 extern float minX, maxX;
@@ -85,7 +88,7 @@ extern Vector2f pozitie_mouse;
 extern string input_expresie;
 extern string input_variabila;
 extern int lista_erori[6];
-extern vector <string> lista_mesaje;
+extern vector<string> lista_mesaje;
 extern Node *selected_node;
 
 extern string eticheta_necunoscuta;

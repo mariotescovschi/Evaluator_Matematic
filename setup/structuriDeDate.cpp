@@ -26,7 +26,7 @@ float horizontal_spacing = 50;
 string input_variabila;
 string eticheta_necunoscuta;
 
-vector <Buton> butoane;
+vector<Buton> butoane;
 RectangleShape buton_ok(Vector2f(40, 30));
 RectangleShape buton_inapoi(Vector2f(70, 30));
 

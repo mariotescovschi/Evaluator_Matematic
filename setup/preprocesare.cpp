@@ -1,14 +1,14 @@
 #include "preprocesare.h"
-#include "meniuCalculator.h"
+#include "../Graphics/meniuCalculator.h"
 
-void initiere_tree(){
+void initiere_tree() {
     tree = new Node;
-    tree -> left = nullptr;
-    tree -> right = nullptr;
-    tree -> middle = nullptr;
+    tree->left = nullptr;
+    tree->right = nullptr;
+    tree->middle = nullptr;
 }
 
-void prestabilire_putere(){
+void prestabilire_putere() {
     putere['+'] = 5;
     putere['-'] = 5;
     putere['*'] = 4;
@@ -20,7 +20,7 @@ void prestabilire_putere(){
     putere['='] = 2;
 }
 
-void prestabilire_alte_functii(){
+void prestabilire_alte_functii() {
     strcpy(alte_functii[0], "sin");
     strcpy(alte_functii[1], "cos");
     strcpy(alte_functii[2], "tan");
@@ -33,17 +33,17 @@ void prestabilire_alte_functii(){
     strcpy(alte_functii[9], "arctg");
 }
 
-void prestabilire_semne(){
+void prestabilire_semne() {
     strcpy(semne, "+-*/^#<>=");
 }
 
-void grafica(){
+void grafica() {
     window.setFramerateLimit(120);
     font.loadFromFile("arial.ttf");
     initializare_butoane();
 }
 
-void preprocesare(){
+void preprocesare() {
     initiere_tree();
     prestabilire_putere();
     prestabilire_alte_functii();
